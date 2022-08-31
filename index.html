@@ -7,7 +7,7 @@
 <sticky-top>
 <h1 style="color:#636363; padding-left: 0.2em;"> - Translation <span id="CurrTranSpan">1</span></h1>
 </sticky-top>
-
+<div id="taoContent">
 <p id="t1d01">The tao that can be told
 is not the eternal Tao
 The name that can be named
@@ -7263,71 +7263,78 @@ The Way of heaven profits without destroying.
 Doing without outdoing
 is the Way of the wise.</p>
 
+</div>
 
 
 
 
 
-<bottom-opacity-gradient>&nbsp;</bottom-opacity-gradient><br />
+
 <sticky-bottom>
-Translation : <br />
-<nav-t class="grid-containerT">
-    <button type="button" class="small_btn" id="t1" onclick="changeT('t1')">1</button>
-    <button type="button" class="small_btn" id="t2" onclick="changeT('t2')">2</button>
-    <button type="button" class="small_btn" id="t3" onclick="changeT('t3')">3</button>
-    <button type="button" class="small_btn" id="t4" onclick="changeT('t4')">4</button>
-    <button type="button" class="small_btn" id="t5" onclick="changeT('t5', true)">5</button>
-</nav-t>
-<br />Chapter : <span id="CurrChapSpan">1</span><br />
-<nav-d class="grid-containerD">
-    <button onclick="changeD('prev')">Previous</button>
-    <button onclick="changeD('today')">Today</button>
-    <button onclick="changeD('next')">Next</button>
-</nav-d>
-<br />
+    <bottom-opacity-gradient>&nbsp;</bottom-opacity-gradient><br />
+    <nav-bottom>
+        Translation : <br />
+        <nav-t>
+            <button id="t1" onclick="changeT('t1', true)">1</button>
+            <button id="t2" onclick="changeT('t2', true)">2</button>
+            <button id="t3" onclick="changeT('t3', true)">3</button>
+            <button id="t4" onclick="changeT('t4', true)">4</button>
+            <button id="t5" onclick="changeT('t5', true)">5</button>
+        </nav-t>
+        <br />Chapter : <span id="CurrChapSpan">1</span><br />
+        <nav-d>
+            <button onclick="changeD('prev', true)">Previous</button>
+            <button onclick="changeD('today', true)">Today</button>
+            <button onclick="changeD('next', true)">Next</button>
+        </nav-d>
+        <br />
+    </nav-bottom>
 </sticky-bottom>
 <style>
+    htmlz {font-size-adjust: .1;}
     body { 
         background-color: #010801;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-family: sans-serif;
 	    color: #ddd; margin: 0px;
     }
     p {display: none; white-space: pre; color: #aaa; font-size: 3rem; 
-        padding-left: 0.3em;}
+        padding-left: 0.3rem;}
+    
+    #taoContent {
+        overflow:auto;
+        height: 60vh;
+    }
     
     bottom-opacity-gradient {
 
         position: -webkit-sticky;
         position: sticky;
-        bottom: 16.5rem;
+        bottom: 16.5em;
         width: 100%;
         display: block;
-        height: 5rem;
+        height: 5em;
         background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.95));
     }
-    nav-t {display: block;}
-
-    .grid-containerT {
+    nav-t {
+        display: block;
         display: grid;
         grid-template-areas: "button1 button2 button3 button4 button5";
-        grid-gap: 2px;
-    }
-    .small_btn {
-        width: 100%;
+        grid-gap: 4px;
         height: 6rem;
     }
     nav-t button {
+        width: 100%;
         color:#bbb;
         font-size: 190%;
         background-color: #333;
         border-style: none;
     }
 
-    .grid-containerD {
+    nav-d {
         display: grid;
         grid-template-areas: "button2 today button3";
-        grid-gap: 2px;
-        margin-top: 2px;
+        grid-gap: 4px;
+        margin-top: 4px;
     }
     nav-d button {
         color:#bbb;
@@ -7337,16 +7344,23 @@ Translation : <br />
         width: 100%;
         height: 6rem;
     }
-    sticky-bottom {
-        position: -webkit-sticky;
-        position: sticky;
-        bottom: 0;
+    nav-bottom {
         background-color: #010801;
         opacity: 1;
+    }
+    sticky-bottom {
+        height: 22rem;
+        min-height: 22rem;
+        position: -webkit-sticky;
+        position: sticky;
+        position: absolute;
+        
+        bottom: 0;
         display: block;
         padding: 0.8rem 0rem 0rem 0rem;
-        max-width: 1140px;
-        color:#bbb;
+        width: 100%;
+        max-width: 70rem;
+        color: #bbb;
     }
 
     sticky-top {
@@ -7356,7 +7370,7 @@ Translation : <br />
         top: 0;
         padding: 0.04rem 0rem 0.04rem 0.1rem;
         background-color: #323232;
-        max-width: 1140px;
+        max-width: 80rem;
       }
 </style>
 <script>
