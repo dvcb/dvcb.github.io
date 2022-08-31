@@ -1,21 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Tao</title>
-<style type="text/css">
-    body { 
-        background-color: #010801;
-        font-family: Verdana, Arial, Helvetica, sans-serif;
-	    color: #ddd; margin: 0px;
-    }
-    p {display: none; white-space: pre; color: #aaa; font-size: 2rem; 
-        padding-left: 0.3em;}
-    nav-t {display: block;}
-</style>
+<title>tao te ching</title>
 </head>
 <body>
 <sticky-top>
-<h1 style="color:#636363; padding-left: 0.2em;">Chapter <span id="CurrChapSpan">1</span> - Translation <span id="CurrTranSpan">1</span></h1>
+<h1 style="color:#636363; padding-left: 0.2em;"> - Translation <span id="CurrTranSpan">1</span></h1>
 </sticky-top>
 
 <p id="t1d01">The tao that can be told
@@ -5816,7 +5806,7 @@ sees only what it wants.
 
 Two things, one origin,
 but different in name,
-whose identity is myster.
+whose identity is mystery.
 Mystery of all mysteries!
 The door to the hidden.</p>
 <p id="t5d02">Everybody on earth knowing
@@ -6227,7 +6217,7 @@ Not competing,
 they have in all the world no competitor.
 
 What they used to say in the old days,
-â€œBe broken to be whole,â€
+“Be broken to be whole,”
 was that mistaken?
 Truly, to be whole
 is to return.</p>
@@ -6289,12 +6279,12 @@ Greatness means going on,
 going on means going far,
 and going far means turning back.
 
-So they say: â€œThe Way is great,
+So they say: “The Way is great,
 heaven is great,
 earth is great,
 and humankind is great;
 four greatnesses in the world,
-and humanity is one of them.â€
+and humanity is one of them.”
 
 People follow earth,
 earth follows heaven,
@@ -6555,7 +6545,7 @@ without what authorizes them, rulers would fall.
 The root of the noble is in the common,
 the high stands on what's below.
 Princes and kings call themselves
-â€œorphans, widowers, beggars,â€
+“orphans, widowers, beggars,”
 to get themselves rooted in the dirt.
 
 A multiplicity of riches
@@ -6627,7 +6617,7 @@ the impenetrable.
 So I know the good in not doing.
 
 The wordless teaching,
-the profit in not doingâ€”
+the profit in not doing—
 not many people understand it.</p>
 <p id="t5d44">Which is nearer,
 name or self?
@@ -7279,9 +7269,8 @@ is the Way of the wise.</p>
 
 
 <sticky-bottom>
-Translation: <br />
+Translation : <br />
 <nav-t class="grid-containerT">
-    
     <div class="grid-itemT">
       <button type="button" class="small_btn" id="t1" onclick="changeT('t1')">1</button>
     </div>
@@ -7298,13 +7287,23 @@ Translation: <br />
       <button type="button" class="small_btn" id="t5" onclick="changeT('t5')">5</button>
     </div>
 </nav-t>
-
+<br />Chapter : <br />
 <nav-d class="grid-containerD">
+    <button style="background-color: #292929;">Chapter <span id="CurrChapSpan">1</span></button>
     <button onclick="changeD('prev')">Previous</button>
     <button onclick="changeD('next')">Next</button>
 </nav-d>
 </sticky-bottom>
 <style>
+    body { 
+        background-color: #010801;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+	    color: #ddd; margin: 0px;
+    }
+    p {display: none; white-space: pre; color: #aaa; font-size: 3rem; 
+        padding-left: 0.3em;}
+    nav-t {display: block;}
+
     .grid-containerT {
         display: grid;
         grid-template-areas: "button1 button2 button3 button4 button5";
@@ -7323,7 +7322,7 @@ Translation: <br />
 
     .grid-containerD {
         display: grid;
-        grid-template-areas: "button1 button2";
+        grid-template-areas: "button1 button2 button3";
         grid-gap: 2px;
         margin-top: 2px;
     }
@@ -7342,17 +7341,17 @@ Translation: <br />
         background-color: #010801;
         display: block;
         padding: 0.8rem 0rem 0rem 0rem;
-        max-width: 1240px;
+        max-width: 1140px;
     }
 
     sticky-top {
-        display: block;
+        display: none;
         position: -webkit-sticky;
         position: sticky;
         top: 0;
         padding: 0.04rem 0rem 0.04rem 0.1rem;
         background-color: #323232;
-        max-width: 1240px;
+        max-width: 1140px;
       }
 </style>
 <script>
@@ -7363,18 +7362,19 @@ Translation: <br />
     var nextD = 'd02';
 
     function changeT(t) {
-      document.getElementById(currentT+currentD).style.display = "none";
-      document.getElementById(currentT).style.backgroundColor = "#444";
-      currentT = t;
-      document.getElementById(currentT+currentD).style.display = "block";
-      document.getElementById(currentT).style.backgroundColor = "#777";
+        document.getElementById(currentT+currentD).style.display = "none";
+        document.getElementById(currentT).style.backgroundColor = "#333";
+        currentT = t;
+        document.getElementById(currentT+currentD).style.display = "block";
+        document.getElementById(currentT).style.backgroundColor = "#777";
 
-      document.getElementById("CurrTranSpan").innerHTML = currentT.substring(1);
-      /*var myElements = document.getElementsByClassName(window.currentT); 
-      for(var counter = 0; counter < myElements.length; counter++){
+        document.getElementById("CurrTranSpan").innerHTML = currentT.substring(1);
+        /*var myElements = document.getElementsByClassName(window.currentT); 
+        for(var counter = 0; counter < myElements.length; counter++){
         myElements[counter].style.display = "none";
-      }
-      */
+        }
+        */
+        updateURLparams();
     }
 
     // can receive 'prev', 'next', or a direct day value like 'd36'
@@ -7403,21 +7403,54 @@ Translation: <br />
         else{ nextD = 'd' + dNext.toString(); }
 
         if(dPrev <= 9) prevD = 'd0' + dPrev.toString();
-        else{ prevD = 'd' + dPrev.toString(); }
-
-        /*
-        */        
+        else{ prevD = 'd' + dPrev.toString(); }      
 
         
         document.getElementById(currentT+currentD).style.display = "block";
         document.getElementById("CurrChapSpan").innerHTML = currentD.substring(1);
+
+        updateURLparams();
     }
     
-    //window.onload = changeT('t1');
-    //window.onload = changeT('t2');
+    function updateURLparams() {
+        var qS = "d=" + currentD.substring(1) + "&t=" + currentT.substring(1);
+        var refreshz = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + qS;    
+        window.history.pushState({ path: refreshz }, '', refreshz);
+    }
+
+    // calculate a chapter to load initially
+    var d1 = new Date("July, 23, 2005");
+    var d2 = new Date();
+    var daysSince = parseInt((d2-d1)/(86400000));
+    var dayStart = parseInt((daysSince % 81) + 1);
+    if (dayStart <= 9) dayStart = '0' + dayStart.toString();
+    else dayStart = dayStart.toString();
+
     changeT('t1');
-    //changeT('t2');
-    changeD('d01');
+    changeD('d'+dayStart.toString());
+
+    // get d from query string and start with it
+    const qString = new URLSearchParams(location.search.slice(1), params = {});
+    if (qString.has('d')) {
+        qStringD = parseInt(qString.get('d'));
+        if(qStringD > 0 && qStringD < 82) {
+            if(qStringD <= 9) { qStringD = '0' + qStringD.toString(); }
+            else { qStringD = qStringD.toString(); }
+            changeD('d'+qStringD);
+        }
+    }
+    // get t from query string and start with it
+    if (qString.has('t')) {
+        qStringT = parseInt(qString.get('t'));
+        if(qStringT > 0 && qStringT <= 5) {
+            qStringT= qStringT.toString();
+            changeT('t'+qStringT);
+        }
+    }
+
+
+    console.log('done');
+    
 </script>
 </body>
 </html> 
