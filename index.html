@@ -7268,24 +7268,15 @@ is the Way of the wise.</p>
 
 
 
+<bottom-opacity-gradient>&nbsp;</bottom-opacity-gradient><br />
 <sticky-bottom>
 Translation : <br />
 <nav-t class="grid-containerT">
-    <div class="grid-itemT">
-      <button type="button" class="small_btn" id="t1" onclick="changeT('t1')">1</button>
-    </div>
-    <div class="grid-itemT">
-      <button type="button" class="small_btn" id="t2" onclick="changeT('t2')">2</button>
-    </div>
-    <div class="grid-itemT">
-      <button type="button" class="small_btn" id="t3" onclick="changeT('t3')">3</button>
-    </div>
-    <div class="grid-itemT">
-      <button type="button" class="small_btn" id="t4" onclick="changeT('t4')">4</button>
-    </div>
-    <div class="grid-itemT">
-      <button type="button" class="small_btn" id="t5" onclick="changeT('t5', true)">5</button>
-    </div>
+    <button type="button" class="small_btn" id="t1" onclick="changeT('t1')">1</button>
+    <button type="button" class="small_btn" id="t2" onclick="changeT('t2')">2</button>
+    <button type="button" class="small_btn" id="t3" onclick="changeT('t3')">3</button>
+    <button type="button" class="small_btn" id="t4" onclick="changeT('t4')">4</button>
+    <button type="button" class="small_btn" id="t5" onclick="changeT('t5', true)">5</button>
 </nav-t>
 <br />Chapter : <span id="CurrChapSpan">1</span><br />
 <nav-d class="grid-containerD">
@@ -7293,6 +7284,7 @@ Translation : <br />
     <button onclick="changeD('today')">Today</button>
     <button onclick="changeD('next')">Next</button>
 </nav-d>
+<br />
 </sticky-bottom>
 <style>
     body { 
@@ -7302,6 +7294,17 @@ Translation : <br />
     }
     p {display: none; white-space: pre; color: #aaa; font-size: 3rem; 
         padding-left: 0.3em;}
+    
+    bottom-opacity-gradient {
+
+        position: -webkit-sticky;
+        position: sticky;
+        bottom: 16.5rem;
+        width: 100%;
+        display: block;
+        height: 5rem;
+        background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.95));
+    }
     nav-t {display: block;}
 
     .grid-containerT {
@@ -7311,11 +7314,11 @@ Translation : <br />
     }
     .small_btn {
         width: 100%;
-        height: 5rem;
+        height: 6rem;
     }
     nav-t button {
         color:#bbb;
-        font-size: 160%;
+        font-size: 190%;
         background-color: #333;
         border-style: none;
     }
@@ -7328,21 +7331,22 @@ Translation : <br />
     }
     nav-d button {
         color:#bbb;
-        font-size: 150%;
+        font-size: 190%;
         background-color: #333;
         border-style: none;
         width: 100%;
-        height: 5rem;
+        height: 6rem;
     }
     sticky-bottom {
         position: -webkit-sticky;
         position: sticky;
         bottom: 0;
         background-color: #010801;
-        opacity: 0.95;
+        opacity: 1;
         display: block;
         padding: 0.8rem 0rem 0rem 0rem;
         max-width: 1140px;
+        color:#bbb;
     }
 
     sticky-top {
