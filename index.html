@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>tao te ching</title>
+<title>daily tao</title>
 </head>
 <body>
 <sticky-top>
@@ -7284,13 +7284,13 @@ Translation : <br />
       <button type="button" class="small_btn" id="t4" onclick="changeT('t4')">4</button>
     </div>
     <div class="grid-itemT">
-      <button type="button" class="small_btn" id="t5" onclick="changeT('t5')">5</button>
+      <button type="button" class="small_btn" id="t5" onclick="changeT('t5', true)">5</button>
     </div>
 </nav-t>
-<br />Chapter : <br />
+<br />Chapter : <span id="CurrChapSpan">1</span><br />
 <nav-d class="grid-containerD">
-    <button style="background-color: #292929;">Chapter <span id="CurrChapSpan">1</span></button>
     <button onclick="changeD('prev')">Previous</button>
+    <button onclick="changeD('today')">Today</button>
     <button onclick="changeD('next')">Next</button>
 </nav-d>
 </sticky-bottom>
@@ -7322,7 +7322,7 @@ Translation : <br />
 
     .grid-containerD {
         display: grid;
-        grid-template-areas: "button1 button2 button3";
+        grid-template-areas: "button2 today button3";
         grid-gap: 2px;
         margin-top: 2px;
     }
@@ -7339,6 +7339,7 @@ Translation : <br />
         position: sticky;
         bottom: 0;
         background-color: #010801;
+        opacity: 0.95;
         display: block;
         padding: 0.8rem 0rem 0rem 0rem;
         max-width: 1140px;
@@ -7361,10 +7362,23 @@ Translation : <br />
     var prevD = 'd81';
     var nextD = 'd02';
 
-    function changeT(t) {
+    // calculate a chapter to load initially
+    var d1 = new Date("July, 23, 2005");
+    var d2 = new Date();
+    var daysSince = parseInt((d2-d1)/(86400000));
+    var dayStart = parseInt((daysSince % 81) + 1);
+    if (dayStart <= 9) dayStart = '0' + dayStart.toString();
+    else dayStart = dayStart.toString();
+
+    changeT('t1');
+    changeD('d'+dayStart.toString());
+
+
+    function changeT(t, changeURL = false) {
         document.getElementById(currentT+currentD).style.display = "none";
         document.getElementById(currentT).style.backgroundColor = "#333";
         currentT = t;
+        //alert(currentT+currentD);
         document.getElementById(currentT+currentD).style.display = "block";
         document.getElementById(currentT).style.backgroundColor = "#777";
 
@@ -7374,17 +7388,20 @@ Translation : <br />
         myElements[counter].style.display = "none";
         }
         */
-        updateURLparams();
+        if(changeURL) updateURLparams();
     }
 
-    // can receive 'prev', 'next', or a direct day value like 'd36'
-    function changeD(x) {
+    // can receive 'prev', 'next', 'today' or a direct day value like 'd36'
+    function changeD(x, changeURL = false) {
         document.getElementById(currentT+currentD).style.display = "none";
         if(x == 'prev') { 
             currentD = prevD;
         }
-        else if(x == 'next') {
+        else if(x == 'next') { 
             currentD = nextD;
+        }
+        else if(x == 'today') { 
+            currentD = 'd' + dayStart.toString();
         }
         else {
             currentD = x;
@@ -7409,7 +7426,7 @@ Translation : <br />
         document.getElementById(currentT+currentD).style.display = "block";
         document.getElementById("CurrChapSpan").innerHTML = currentD.substring(1);
 
-        updateURLparams();
+        if(changeURL) updateURLparams();
     }
     
     function updateURLparams() {
@@ -7417,17 +7434,6 @@ Translation : <br />
         var refreshz = window.location.protocol + "//" + window.location.host + window.location.pathname + '?' + qS;    
         window.history.pushState({ path: refreshz }, '', refreshz);
     }
-
-    // calculate a chapter to load initially
-    var d1 = new Date("July, 23, 2005");
-    var d2 = new Date();
-    var daysSince = parseInt((d2-d1)/(86400000));
-    var dayStart = parseInt((daysSince % 81) + 1);
-    if (dayStart <= 9) dayStart = '0' + dayStart.toString();
-    else dayStart = dayStart.toString();
-
-    changeT('t1');
-    changeD('d'+dayStart.toString());
 
     // get d from query string and start with it
     const qString = new URLSearchParams(location.search.slice(1), params = {});
@@ -7437,6 +7443,7 @@ Translation : <br />
             if(qStringD <= 9) { qStringD = '0' + qStringD.toString(); }
             else { qStringD = qStringD.toString(); }
             changeD('d'+qStringD);
+            updateURLparams();
         }
     }
     // get t from query string and start with it
@@ -7445,6 +7452,7 @@ Translation : <br />
         if(qStringT > 0 && qStringT <= 5) {
             qStringT= qStringT.toString();
             changeT('t'+qStringT);
+            updateURLparams();
         }
     }
 
