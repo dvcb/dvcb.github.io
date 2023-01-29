@@ -7,6 +7,28 @@
 <sticky-top>
 <h1 style="color:#636363; padding-left: 0.2em;"> - Translation <span id="CurrTranSpan">1</span></h1>
 </sticky-top>
+<fullstickycontainer>
+<sticky-bottom>
+    <nav-bottom>
+        Translation : <br />
+        <nav-t>
+            <button id="t1" onclick="changeT('t1', true)">1</button>
+            <button id="t2" onclick="changeT('t2', true)">2</button>
+            <button id="t3" onclick="changeT('t3', true)">3</button>
+            <button id="t4" onclick="changeT('t4', true)">4</button>
+            <button id="t5" onclick="changeT('t5', true)">5</button>
+        </nav-t>
+        <br />Chapter / Day : <span id="CurrChapSpan">1</span><br />
+        <nav-d>
+            <button onclick="changeD('prev', true)">Previous</button>
+            <button onclick="changeD('today', true)">Today</button>
+            <button onclick="changeD('next', true)">Next</button>
+        </nav-d>
+        <br /> 
+    </nav-bottom>
+</sticky-bottom>
+<bottom-opacity-gradient>&nbsp;<br /><br /><br /><br /></bottom-opacity-gradient> 
+</fullstickycontainer>
 <div id="taoContent">
 <p id="t1d01">The tao that can be told
 is not the eternal Tao
@@ -4481,7 +4503,21 @@ The wise therefore rule by emptying hearts and stuffing bellies, by weakening am
 If men lack knowledge and desire, then clever people will not try to interfere.
 If nothing is done, then all will be well.
 
+Not exalting the gifted prevents quarreling.
+Not collecting treasures prevents stealing.
+Not seeing desirable things prevents confusion of the heart.
 
+The wise therefore rule by emptying hearts and stuffing bellies, by weakening ambitions and strengthening bones.
+If men lack knowledge and desire, then clever people will not try to interfere.
+If nothing is done, then all will be well.
+
+Not exalting the gifted prevents quarreling.
+Not collecting treasures prevents stealing.
+Not seeing desirable things prevents confusion of the heart.
+
+The wise therefore rule by emptying hearts and stuffing bellies, by weakening ambitions and strengthening bones.
+If men lack knowledge and desire, then clever people will not try to interfere.
+If nothing is done, then all will be well.
 </p>
 <p id="t4d04">The Tao is an empty vessel; it is used, but never filled.
 Oh, unfathomable source of ten thousand things!
@@ -6217,7 +6253,7 @@ Not competing,
 they have in all the world no competitor.
 
 What they used to say in the old days,
-“Be broken to be whole,”
+�Be broken to be whole,�
 was that mistaken?
 Truly, to be whole
 is to return.</p>
@@ -6279,12 +6315,12 @@ Greatness means going on,
 going on means going far,
 and going far means turning back.
 
-So they say: “The Way is great,
+So they say: �The Way is great,
 heaven is great,
 earth is great,
 and humankind is great;
 four greatnesses in the world,
-and humanity is one of them.”
+and humanity is one of them.�
 
 People follow earth,
 earth follows heaven,
@@ -6545,7 +6581,7 @@ without what authorizes them, rulers would fall.
 The root of the noble is in the common,
 the high stands on what's below.
 Princes and kings call themselves
-“orphans, widowers, beggars,”
+�orphans, widowers, beggars,�
 to get themselves rooted in the dirt.
 
 A multiplicity of riches
@@ -6617,7 +6653,7 @@ the impenetrable.
 So I know the good in not doing.
 
 The wordless teaching,
-the profit in not doing—
+the profit in not doing�
 not many people understand it.</p>
 <p id="t5d44">Which is nearer,
 name or self?
@@ -7269,101 +7305,13 @@ is the Way of the wise.</p>
 
 
 
-
-<sticky-bottom>
-    <bottom-opacity-gradient>&nbsp;</bottom-opacity-gradient><br />
-    <nav-bottom>
-        Translation : <br />
-        <nav-t>
-            <button id="t1" onclick="changeT('t1', true)">1</button>
-            <button id="t2" onclick="changeT('t2', true)">2</button>
-            <button id="t3" onclick="changeT('t3', true)">3</button>
-            <button id="t4" onclick="changeT('t4', true)">4</button>
-            <button id="t5" onclick="changeT('t5', true)">5</button>
-        </nav-t>
-        <br />Chapter : <span id="CurrChapSpan">1</span><br />
-        <nav-d>
-            <button onclick="changeD('prev', true)">Previous</button>
-            <button onclick="changeD('today', true)">Today</button>
-            <button onclick="changeD('next', true)">Next</button>
-        </nav-d>
-        <br />
-    </nav-bottom>
-</sticky-bottom>
+<!-- DUPLICATE !!!   <bottom-opacity-gradient>&nbsp;</bottom-opacity-gradient> -->
 <style>
-    htmlz {font-size-adjust: .1;}
     body { 
         background-color: #010801;
         font-family: sans-serif;
 	    color: #ddd; margin: 0px;
     }
-    p {display: none; white-space: pre; color: #aaa; font-size: 3rem; 
-        padding-left: 0.3rem;}
-    
-    #taoContent {
-        overflow:auto;
-        height: 60vh;
-    }
-    
-    bottom-opacity-gradient {
-	background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgba(0,0,0,0.7) 100%);
-	    
-        position: sticky;
-        bottom: 16.5em;
-        width: 100%;
-        display: block;
-        height: 7em;
-	
-
-    }
-    nav-t {
-        display: block;
-        display: grid;
-        grid-template-areas: "button1 button2 button3 button4 button5";
-        grid-gap: 4px;
-        height: 6rem;
-    }
-    nav-t button {
-        width: 100%;
-        color:#bbb;
-        font-size: 190%;
-        background-color: #333;
-        border-style: none;
-    }
-
-    nav-d {
-        display: grid;
-        grid-template-areas: "button2 today button3";
-        grid-gap: 4px;
-        margin-top: 4px;
-    }
-    nav-d button {
-        color:#bbb;
-        font-size: 190%;
-        background-color: #333;
-        border-style: none;
-        width: 100%;
-        height: 6rem;
-    }
-    nav-bottom {
-        background-color: #010801;
-        opacity: 1;
-    }
-    sticky-bottom {
-        /*height: 22rem;
-        min-height: 22rem;*/
-        position: -webkit-sticky;
-        position: sticky;
-        position: absolute;
-        
-        bottom: 0;
-        display: block;
-        padding: 0.8rem 0rem 2rem 0rem;
-        width: 100%;
-        max-width: 70rem;
-        color: #bbb;
-    }
-
     sticky-top {
         display: none;
         position: -webkit-sticky;
@@ -7372,7 +7320,118 @@ is the Way of the wise.</p>
         padding: 0.04rem 0rem 0.04rem 0.1rem;
         background-color: #323232;
         max-width: 80rem;
-      }
+    }
+    p {
+        display: none; white-space: pre; color: #aaa; font-size: 2.5rem; 
+        padding-left: 0.3rem;
+    }    
+    #taoContent {
+        overflow:auto;
+        /* height: 60vh; */ 
+        background-color: #000000;
+        display: block;
+    }
+    fullstickycontainer {
+        position: sticky;
+        /* position: absolute; */
+        
+        top: 0;
+        display: block;
+        /* padding: 0.8rem 0rem 2rem 0rem; */
+        width: 100%;
+        color: #bbb;
+        background-color: rgba(19, 17, 14, .1);
+    }
+    sticky-bottom {
+        /*height: 22rem;
+        min-height: 22rem;
+        position: -webkit-sticky;*/
+        /* position: absolute; */
+        /*
+        position: sticky;
+        top: 0;
+        */
+        display: block;
+        /* padding: 0.8rem 0rem 2rem 0rem; */
+        width: 100%;
+        color: #bbb;
+        background-color: rgba(19, 17, 14, 1);
+    }
+    bottom-opacity-gradient {
+	    background: linear-gradient(0deg,  rgba(19, 17, 14, 0), rgba(19, 17, 14,1) 100%);
+	    
+
+        display: block;
+        width: 100%;
+        display: block;
+        /* height: 7em;*/
+	
+
+    }
+    nav-bottom {
+        background-color: #010801;
+        opacity: 1;
+        max-width: 70rem;
+        display:block;
+        
+        font-size: 2rem;
+
+        margin-right: auto; margin-left: auto;
+    }
+    nav-t {
+        display: grid;
+        grid-template-areas: "button1 button2 button3 button4 button5";
+        grid-gap: 14px;
+        height: 6rem;
+    }
+    nav-t button {
+        background-color: #333;
+        border-style: none;
+        width: 100%;
+        font-size: 2rem;
+        color:#bbb;
+    }
+    nav-d {
+        display: grid;
+        grid-template-areas: "button2 today button3";
+        grid-gap: 14px;
+        height: 6rem;
+        margin-top: 4px;
+    }
+    nav-d button {
+        background-color: #333;
+        border-style: none;
+        width: 100%;
+        font-size: 2rem;
+        color:#bbb;
+    }
+
+    @media (pointer: fine) {
+        nav-bottom {
+            font-size-adjust: .5;
+            background-color: rgb(0, 85, 85);
+            background-color: rgb(19, 17, 14);
+        }
+    }
+    
+    @media (pointer: coarse), (pointer: none)  {
+        p { font-size: 4rem;}
+        nav-bottom {
+            /* font-size-adjust: 5.5; */
+            font-size: 4rem;
+            background-color: rgb(44, 8, 3);
+            background-color: rgb(19, 17, 14);
+        }
+        nav-t button {
+            font-size: 4rem;
+            height: 9rem;
+        }
+        nav-d button {
+            font-size: 4rem;
+            height: 9rem;
+        }
+    }
+
 </style>
 <script>
     //TODO - replace with something better than a global var, maybe 
@@ -7389,8 +7448,12 @@ is the Way of the wise.</p>
     if (dayStart <= 9) dayStart = '0' + dayStart.toString();
     else dayStart = dayStart.toString();
 
-    changeT('t1');
-    changeD('d'+dayStart.toString());
+    //changeT('t1');
+    //changeD('d'+dayStart.toString());
+
+    changeT('t4');
+    changeD('d03');
+
 
 
     function changeT(t, changeURL = false) {
@@ -7479,5 +7542,4 @@ is the Way of the wise.</p>
     console.log('done');
     
 </script>
-</body>
-</html> 
+</body></html>
